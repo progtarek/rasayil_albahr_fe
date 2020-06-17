@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+}
+
+.route-enter {
+  opacity: 0;
+}
+.route-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in-out;
+}
+.route-exit {
+  opacity: 0;
+}
+.route-exit-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in-out;
+}
