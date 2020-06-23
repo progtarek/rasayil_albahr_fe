@@ -23,6 +23,10 @@ export const Field = styled.input`
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &.invalid {
+    border: 1px solid #dc3545;
+  }
 `;
 
 export const ErrorMessage = styled.div`

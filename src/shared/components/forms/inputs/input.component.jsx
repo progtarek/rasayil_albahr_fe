@@ -7,7 +7,11 @@ const FormInput = ({ label, ...props }) => {
   return (
     <FormGroup>
       <FormLabel htmlFor={props.id || props.name}>{label}</FormLabel>
-      <Field {...field} {...props} />
+      <Field
+        {...field}
+        {...props}
+        className={meta.touched && meta.error ? 'invalid' : ''}
+      />
       {meta.touched && meta.error ? (
         <ErrorMessage>{meta.error}</ErrorMessage>
       ) : null}
