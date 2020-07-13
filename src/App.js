@@ -10,7 +10,14 @@ function App() {
   const { key } = useLocation();
   return (
     <TransitionGroup>
-      <CSSTransition key={key} classNames='route' timeout={300}>
+      <CSSTransition
+        key={key}
+        classNames='route'
+        timeout={300}
+        exit={false}
+        unmountOnExit={true}
+        mountOnEnter={true}
+      >
         <Switch>
           <Route exact path='/login' component={LoginPage}></Route>
           <Route exact path='/register' component={RegisterPage}></Route>
