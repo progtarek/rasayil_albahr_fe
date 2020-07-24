@@ -4,13 +4,21 @@ import App from './App';
 import './App.css';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
+import configureStore, { history } from './redux/store';
+import { ConnectedRouter } from 'connected-react-router';
+import { Provider } from 'react-redux';
+const store = configureStore();
 
 ReactDOM.render(
   // [ TODO ] remove strict mode
   // <React.StrictMode>
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ConnectedRouter>
+  </Provider>,
   // </React.StrictMode>,
   document.getElementById('root')
 );
