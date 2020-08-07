@@ -1,8 +1,9 @@
 import { LOGIN_SUCCESS } from '../constants/actionTypes';
 
 const initialState = {
-  _id: null,
-  username: null,
+  isAuthorized: !!window.localStorage.getItem('token'),
+  token: window.localStorage.getItem('token') || null,
+  username: window.localStorage.getItem('username') || null,
 };
 
 function authReducer(state = initialState, { type, payload }) {
@@ -10,6 +11,8 @@ function authReducer(state = initialState, { type, payload }) {
     case LOGIN_SUCCESS:
       return {
         ...state,
+        isAuthorized: true,
+        token: payload.token,
         username: payload.username,
       };
     default:
