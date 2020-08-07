@@ -2,40 +2,36 @@ import React from 'react';
 import * as Yup from 'yup';
 import { Formik, Form } from 'formik';
 import FormInput from '../../../shared/components/forms/inputs/input.component';
+import { connect } from 'react-redux';
+import { loginAction } from '../../../redux/actions/auth.action';
 
 const credentialSchema = Yup.object({
-  mobile: Yup.string()
-    .length(11, 'Invalid mobile number.')
-    .required('Required'),
+  username: Yup.string().required('Required'),
   password: Yup.string().required('Required'),
 });
 
 const initialValues = {
-  mobile: '',
+  username: '',
   password: '',
 };
 
-const handleSubmit = (values, { setSubmitting }) => {
-  setTimeout(() => {
-    alert(JSON.stringify(values, null, 2));
-    setSubmitting(false);
-  }, 400);
-};
-
-const LoginPage = () => {
+const LoginPage = ({ login }) => {
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={credentialSchema}
-      onSubmit={handleSubmit}
+      onSubmit={(credentials, { setSubmitting }) => {
+        login(credentials);
+        setSubmitting(false);
+      }}
     >
       <Form>
         <FormInput
-          label='Mobile number'
-          name='mobile'
-          type='input'
-          id='mobile'
-          placeholder='mobile number'
+          label='Username'
+          name='username'
+          type='text'
+          id='username'
+          placeholder='enter username'
         />
         <FormInput
           label='Password'
@@ -50,4 +46,10 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    login: (credentials) => dispatch(loginAction(credentials)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(LoginPage);

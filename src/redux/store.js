@@ -1,9 +1,9 @@
 import { createBrowserHistory } from 'history';
 import { applyMiddleware, compose, createStore } from 'redux';
 import { routerMiddleware } from 'connected-react-router';
-import createRootReducer from './root.reducers';
+import createRootReducer from './reducers/index';
 import * as logger from 'redux-logger';
-import rootSaga from './root.sagas';
+import rootSaga from './sagas/index';
 import createSagaMiddleware from 'redux-saga';
 
 const sagaMiddleware = createSagaMiddleware();
