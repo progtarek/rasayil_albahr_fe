@@ -2,14 +2,7 @@ import React from 'react';
 import { PageContainer } from '../../shared/styles/global.styles';
 
 const AccountPage = () => {
-  return (
-    <PageContainer>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae veniam,
-      temporibus porro non earum alias cumque corporis laborum perferendis illo
-      odio, sed exercitationem quos modi optio numquam laboriosam asperiores
-      deleniti!
-    </PageContainer>
-  );
+  return <PageContainer>Hello from the other side</PageContainer>;
 };
 
 export default AccountPage;

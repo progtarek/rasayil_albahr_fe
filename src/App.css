@@ -1,5 +1,12 @@
+* {
+  font-family: 'Nunito', sans-serif;
+  color: #3d373d;
+}
+
 body {
   margin: 0;
+  font-family: 'Nunito', sans-serif;
+  color: #3d373d;
 }
 
 .route-enter {
@@ -15,4 +22,10 @@ body {
 .route-exit-active {
   opacity: 1;
   transition: opacity 300ms ease-in-out;
+}
+
+/*  General styles */
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
