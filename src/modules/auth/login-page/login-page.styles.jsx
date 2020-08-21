@@ -21,14 +21,30 @@ export const HeroContainer = styled.div`
 `;
 
 export const FormContainer = styled.div`
-  height: 100%;
   padding: 1rem;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  flex: 1;
+  max-width: 420px;
+  margin: 0 auto;
 
   form {
     margin-top: 2rem;
+  }
+`;
+
+export const SocialContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 2rem;
+  justify-content: space-around;
+
+  img {
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
   }
 `;

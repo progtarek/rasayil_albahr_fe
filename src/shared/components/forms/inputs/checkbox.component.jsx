@@ -8,10 +8,7 @@ import {
 import { useField } from 'formik';
 
 const CheckboxInput = ({ label, ...props }) => {
-  const [field, meta, helpers] = useField(props);
-  console.log(field);
-  console.log(meta);
-  console.log(helpers);
+  const [field] = useField(props);
   return (
     <FormGroup>
       <CheckboxLabel htmlFor={props.id || props.name}>

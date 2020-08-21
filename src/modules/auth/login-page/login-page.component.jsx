@@ -8,13 +8,19 @@ import React, { useState } from 'react';
 import {
   PageContainer,
   FunkyButton,
+  OrSeparator,
   Button,
 } from '../../../shared/styles/global.styles';
 import {
   LoginPageContainer,
   HeroContainer,
   FormContainer,
+  SocialContainer,
 } from './login-page.styles';
+
+import FBLogo from '../../../assets/images/socials/facebook.svg';
+import TwitterLogo from '../../../assets/images/socials/twitter.svg';
+import GoogleLogo from '../../../assets/images/socials/google.svg';
 
 const credentialSchema = Yup.object({
   username: Yup.string().required('Required'),
@@ -70,6 +76,14 @@ const LoginPage = ({ login }) => {
               </Button>
             </Form>
           </Formik>
+          <OrSeparator>
+            <span>or</span>
+          </OrSeparator>
+          <SocialContainer>
+            <img src={FBLogo} alt='login with facebook' />
+            <img src={TwitterLogo} alt='login with twitter' />
+            <img src={GoogleLogo} alt='login with google' />
+          </SocialContainer>
         </FormContainer>
       </LoginPageContainer>
     </PageContainer>

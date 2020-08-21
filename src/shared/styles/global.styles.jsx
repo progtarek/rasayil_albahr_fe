@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { PRIMARY, PRIMARY_DARK } from './theme.variables';
+import { PRIMARY, PRIMARY_DARK, GRAY } from './theme.variables';
 
 export const PageContainer = styled.div`
   width: 100vw;
@@ -49,4 +49,20 @@ export const FunkyButton = styled.h3`
   font-family: 'Pacifico', cursive;
   line-height: 3rem;
   color: ${PRIMARY};
+`;
+
+export const OrSeparator = styled.div`
+  height: 1px;
+  background-color: ${GRAY};
+  margin: 2rem 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    color: ${PRIMARY};
+    background-color: #fff;
+    padding: 1.2rem;
+  }
 `;
