@@ -16,6 +16,7 @@ import {
   HeroContainer,
   FormContainer,
   SocialContainer,
+  HaveAccountContainer,
 } from './login-page.styles';
 
 import FBLogo from '../../../assets/images/socials/facebook.svg';
@@ -84,6 +85,9 @@ const LoginPage = ({ login }) => {
             <img src={TwitterLogo} alt='login with twitter' />
             <img src={GoogleLogo} alt='login with google' />
           </SocialContainer>
+          <HaveAccountContainer>
+            Don’t have an account yet? <a href='#'>Sign up</a>
+          </HaveAccountContainer>
         </FormContainer>
       </LoginPageContainer>
     </PageContainer>

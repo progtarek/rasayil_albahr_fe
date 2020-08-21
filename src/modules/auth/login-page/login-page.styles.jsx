@@ -48,3 +48,9 @@ export const SocialContainer = styled.div`
     cursor: pointer;
   }
 `;
+
+export const HaveAccountContainer = styled.p`
+  a {
+    color: ${PRIMARY};
+  }
+`;

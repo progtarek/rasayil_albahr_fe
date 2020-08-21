@@ -52,6 +52,7 @@ export const CheckboxLabel = styled.label`
   align-items: center;
   cursor: pointer;
   margin-top: -7px;
+  margin-bottom: 1.2rem;
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   -khtml-user-select: none; /* Konqueror HTML */
