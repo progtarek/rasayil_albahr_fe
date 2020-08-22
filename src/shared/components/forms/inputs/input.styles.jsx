@@ -30,6 +30,11 @@ export const Field = styled.input`
 
   &.invalid {
     border: 1px solid #dc3545;
+
+    &:focus {
+      border-color: #dc3545;
+      box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+    }
   }
 
   &:focus,
@@ -43,8 +48,10 @@ export const Field = styled.input`
 `;
 
 export const ErrorMessage = styled.div`
-  // TODO change error colors
-  color: red;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #dc3545;
 `;
 
 export const CheckboxLabel = styled.label`

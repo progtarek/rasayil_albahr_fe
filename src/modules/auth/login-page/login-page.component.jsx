@@ -1,10 +1,14 @@
 import FormInput from '../../../shared/components/forms/inputs/input.component';
 import CheckboxInput from '../../../shared/components/forms/inputs/checkbox.component';
-import { loginAction } from '../../../redux/actions/auth.action';
+import {
+  loginAction,
+  googleLoginAction,
+} from '../../../redux/actions/auth.action';
+import { useHistory } from 'react-router-dom';
+import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
 import { connect } from 'react-redux';
 import * as Yup from 'yup';
-import React, { useState } from 'react';
 import {
   PageContainer,
   FunkyButton,
@@ -24,8 +28,8 @@ import TwitterLogo from '../../../assets/images/socials/twitter.svg';
 import GoogleLogo from '../../../assets/images/socials/google.svg';
 
 const credentialSchema = Yup.object({
-  username: Yup.string().required('Required'),
-  password: Yup.string().required('Required'),
+  username: Yup.string().required('This field is required.'),
+  password: Yup.string().required('This field is required.'),
 });
 
 const initialValues = {
@@ -33,8 +37,10 @@ const initialValues = {
   password: '',
 };
 
-const LoginPage = ({ login }) => {
+const LoginPage = ({ login, googleLogin }) => {
   const [checked, setRememberMe] = useState(false);
+  let history = useHistory();
+
   return (
     <PageContainer>
       <LoginPageContainer>
@@ -83,10 +89,15 @@ const LoginPage = ({ login }) => {
           <SocialContainer>
             <img src={FBLogo} alt='login with facebook' />
             <img src={TwitterLogo} alt='login with twitter' />
-            <img src={GoogleLogo} alt='login with google' />
+            <img
+              src={GoogleLogo}
+              alt='login with google'
+              onClick={googleLogin}
+            />
           </SocialContainer>
           <HaveAccountContainer>
-            Don’t have an account yet? <a href='#'>Sign up</a>
+            Don’t have an account yet?{' '}
+            <span onClick={() => history.push('/register')}>Sign up</span>
           </HaveAccountContainer>
         </FormContainer>
       </LoginPageContainer>
@@ -97,6 +108,7 @@ const LoginPage = ({ login }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     login: (credentials) => dispatch(loginAction(credentials)),
+    googleLogin: () => dispatch(googleLoginAction()),
   };
 };
 

@@ -16,6 +16,7 @@ const requests = {
 const Auth = {
   //   current: () => requests.get('/user'),
   login: (credentials) => requests.post('/auth/login', { ...credentials }),
+  loginWithGoogle: () => requests.get('/auth/google-login'),
   //   register: (username, email, password) =>
   //     requests.post('/users', { user: { username, email, password } }),
   //   save: (user) => requests.put('/user', { user }),

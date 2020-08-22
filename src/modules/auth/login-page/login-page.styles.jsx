@@ -50,7 +50,8 @@ export const SocialContainer = styled.div`
 `;
 
 export const HaveAccountContainer = styled.p`
-  a {
+  span {
     color: ${PRIMARY};
+    cursor: pointer;
   }
 `;

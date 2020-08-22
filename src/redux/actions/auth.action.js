@@ -1,8 +1,12 @@
-import { LOGIN, REGISTER } from '../constants/actionTypes';
+import { LOGIN, REGISTER, GOOGLE_LOGIN } from '../constants/actionTypes';
 
 const loginAction = (loginCredentials) => ({
   type: LOGIN,
   payload: loginCredentials,
+});
+
+const googleLoginAction = () => ({
+  type: GOOGLE_LOGIN,
 });
 
 const registerAction = (registerCredentials) => ({
@@ -10,4 +14,4 @@ const registerAction = (registerCredentials) => ({
   payload: registerCredentials,
 });
 
-export { loginAction, registerAction };
+export { loginAction, registerAction, googleLoginAction };
