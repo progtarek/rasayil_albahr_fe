@@ -9,17 +9,16 @@ const SocialLoginPage = ({ history }) => {
   const username = searchParams.get('username');
   const profilePictureUrl = searchParams.get('profilePictureUrl');
 
-  window.localStorage.setItem('token', decodeURIComponent(token));
-  window.localStorage.setItem('username', decodeURIComponent(username));
-  window.localStorage.setItem(
-    'profilePictureUrl',
-    decodeURIComponent(profilePictureUrl)
-  );
-
-  if (!token || !username) {
-    history.push('/login');
-  } else {
+  if (token && username) {
+    window.localStorage.setItem('token', decodeURIComponent(token));
+    window.localStorage.setItem('username', decodeURIComponent(username));
+    window.localStorage.setItem(
+      'profilePictureUrl',
+      decodeURIComponent(profilePictureUrl)
+    );
     history.push('/account');
+  } else {
+    history.push('/login');
   }
 
   return <PageContainer>...loading</PageContainer>;
