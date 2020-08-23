@@ -4,6 +4,7 @@ const initialState = {
   isAuthorized: !!window.localStorage.getItem('token'),
   token: window.localStorage.getItem('token') || null,
   username: window.localStorage.getItem('username') || null,
+  profilePictureUrl: window.localStorage.getItem('profilePictureUrl') || null,
 };
 
 function authReducer(state = initialState, { type, payload }) {
@@ -14,6 +15,7 @@ function authReducer(state = initialState, { type, payload }) {
         isAuthorized: true,
         token: payload.token,
         username: payload.username,
+        profilePictureUrl: payload.profilePictureUrl,
       };
     default:
       return state;
