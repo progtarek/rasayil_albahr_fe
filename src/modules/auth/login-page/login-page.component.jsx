@@ -1,9 +1,6 @@
 import FormInput from '../../../shared/components/forms/inputs/input.component';
 import CheckboxInput from '../../../shared/components/forms/inputs/checkbox.component';
-import {
-  loginAction,
-  googleLoginAction,
-} from '../../../redux/actions/auth.action';
+import { loginAction } from '../../../redux/actions/auth.action';
 import { useHistory } from 'react-router-dom';
 import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
@@ -37,7 +34,7 @@ const initialValues = {
   password: '',
 };
 
-const LoginPage = ({ login, googleLogin }) => {
+const LoginPage = ({ login }) => {
   const [checked, setRememberMe] = useState(false);
   let history = useHistory();
 
@@ -87,13 +84,15 @@ const LoginPage = ({ login, googleLogin }) => {
             <span>or</span>
           </OrSeparator>
           <SocialContainer>
-            <img src={FBLogo} alt='login with facebook' />
-            <img src={TwitterLogo} alt='login with twitter' />
-            <img
-              src={GoogleLogo}
-              alt='login with google'
-              onClick={googleLogin}
-            />
+            <a href='http://'>
+              <img src={FBLogo} alt='login with facebook' />
+            </a>
+            <a href='http://'>
+              <img src={TwitterLogo} alt='login with twitter' />
+            </a>
+            <a href='http://'>
+              <img src={GoogleLogo} alt='login with google' />
+            </a>
           </SocialContainer>
           <HaveAccountContainer>
             Don’t have an account yet?{' '}
@@ -108,7 +107,6 @@ const LoginPage = ({ login, googleLogin }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     login: (credentials) => dispatch(loginAction(credentials)),
-    googleLogin: () => dispatch(googleLoginAction()),
   };
 };
 

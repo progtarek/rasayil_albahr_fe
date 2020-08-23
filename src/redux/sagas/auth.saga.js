@@ -1,4 +1,4 @@
-import { LOGIN_SUCCESS, LOGIN, GOOGLE_LOGIN } from '../constants/actionTypes';
+import { LOGIN_SUCCESS, LOGIN } from '../constants/actionTypes';
 import { call, takeLatest, put } from 'redux-saga/effects';
 import { push } from 'connected-react-router';
 import { Auth } from '../../agent';
@@ -17,22 +17,8 @@ function* loginAsync(action) {
   }
 }
 
-function* loginWithGoogleAsync(action) {
-  try {
-    const res = yield call(Auth.loginWithGoogle);
-    console.log(res);
-  } catch (e) {
-    // TODO handle login errors
-    console.log(e);
-  }
-}
-
 function* login() {
   yield takeLatest(LOGIN, loginAsync);
 }
 
-function* loginWithGoogle() {
-  yield takeLatest(GOOGLE_LOGIN, loginWithGoogleAsync);
-}
-
-export { login, loginWithGoogle };
+export { login };

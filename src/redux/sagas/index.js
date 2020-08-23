@@ -1,6 +1,6 @@
 import { all } from 'redux-saga/effects';
-import { login, loginWithGoogle } from './auth.saga';
+import { login } from './auth.saga';
 
 export default function* rootSaga() {
-  yield all([login(), loginWithGoogle()]);
+  yield all([login()]);
 }
