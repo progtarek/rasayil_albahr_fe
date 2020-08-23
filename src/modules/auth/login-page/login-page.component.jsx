@@ -84,13 +84,13 @@ const LoginPage = ({ login }) => {
             <span>or</span>
           </OrSeparator>
           <SocialContainer>
-            <a href='http://'>
+            <a href={process.env.REACT_APP_API_URL + '/auth/facebook-login'}>
               <img src={FBLogo} alt='login with facebook' />
             </a>
             <a href='http://'>
               <img src={TwitterLogo} alt='login with twitter' />
             </a>
-            <a href='http://'>
+            <a href={process.env.REACT_APP_API_URL + '/auth/google-login'}>
               <img src={GoogleLogo} alt='login with google' />
             </a>
           </SocialContainer>
