@@ -7,6 +7,7 @@ import RegisterPage from './modules/auth/register-page/register-page.component';
 import './App.css';
 import AccountPage from './modules/account';
 import { connect } from 'react-redux';
+import SocialLoginPage from './modules/auth/social-login-page/social-login-page';
 
 function App({ isAuthorized }) {
   const { key } = useLocation();
@@ -42,6 +43,7 @@ function App({ isAuthorized }) {
               !isAuthorized ? <RegisterPage /> : <Redirect to='/account' />
             }
           ></Route>
+          <Route exact path='/authWith' component={SocialLoginPage}></Route>
           <Route exact path='/' component={LandingPage}></Route>
         </Switch>
       </CSSTransition>
