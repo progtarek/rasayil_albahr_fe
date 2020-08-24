@@ -1,8 +1,10 @@
 import React from 'react';
 import { PageContainer } from '../../../shared/styles/global.styles';
 import { useLocation } from 'react-router-dom';
+import { LOGIN_SUCCESS } from '../../../redux/constants/actionTypes';
+import { connect } from 'react-redux';
 
-const SocialLoginPage = ({ history }) => {
+const SocialLoginPage = ({ history, storeUser }) => {
   const searchParams = new URLSearchParams(useLocation().search);
 
   const token = searchParams.get('token');
@@ -16,6 +18,7 @@ const SocialLoginPage = ({ history }) => {
       'profilePictureUrl',
       decodeURIComponent(profilePictureUrl)
     );
+    storeUser({ username, token, profilePictureUrl });
     history.push('/account');
   } else {
     history.push('/login');
@@ -24,4 +27,10 @@ const SocialLoginPage = ({ history }) => {
   return <PageContainer>...loading</PageContainer>;
 };
 
-export default SocialLoginPage;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    storeUser: (user) => dispatch(LOGIN_SUCCESS, user),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(SocialLoginPage);
