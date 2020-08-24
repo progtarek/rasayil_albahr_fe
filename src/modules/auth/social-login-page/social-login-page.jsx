@@ -29,7 +29,7 @@ const SocialLoginPage = ({ history, storeUser }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    storeUser: (user) => dispatch(LOGIN_SUCCESS, user),
+    storeUser: (user) => dispatch({ type: LOGIN_SUCCESS, payload: user }),
   };
 };
 
