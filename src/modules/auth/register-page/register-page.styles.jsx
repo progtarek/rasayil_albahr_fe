@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { PRIMARY } from '../../../shared/styles/theme.variables';
-import HeroImage from '../../../assets/images/auth/register-hero.svg';
+import HeroImage from '../../../assets/images/auth/hero.svg';
 
-export const LoginPageContainer = styled.div`
+export const RegisterPageContainer = styled.div`
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -31,7 +31,7 @@ export const FormContainer = styled.div`
   margin: 0 auto;
 
   form {
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 `;
 

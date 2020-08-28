@@ -1,7 +1,6 @@
 import FormInput from '../../../shared/components/forms/inputs/input.component';
 import CheckboxInput from '../../../shared/components/forms/inputs/checkbox.component';
 import { loginAction } from '../../../redux/actions/auth.action';
-import { useHistory } from 'react-router-dom';
 import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
 import { connect } from 'react-redux';
@@ -23,28 +22,30 @@ import {
 import FBLogo from '../../../assets/images/socials/facebook.svg';
 import TwitterLogo from '../../../assets/images/socials/twitter.svg';
 import GoogleLogo from '../../../assets/images/socials/google.svg';
+import { NavLink } from 'react-router-dom';
 
 const credentialSchema = Yup.object({
-  username: Yup.string().required('This field is required.'),
+  email: Yup.string()
+    .email('Invalid email format.')
+    .required('This field is required.'),
   password: Yup.string().required('This field is required.'),
 });
 
 const initialValues = {
-  username: '',
+  email: '',
   password: '',
 };
 
 const LoginPage = ({ login }) => {
   const [checked, setRememberMe] = useState(false);
-  let history = useHistory();
 
   return (
     <PageContainer>
       <LoginPageContainer>
         <HeroContainer></HeroContainer>
         <FormContainer>
-          <FunkyButton>Aloha</FunkyButton>
-          <p>let's send you to your island</p>
+          <FunkyButton>Welcome back</FunkyButton>
+          <p>You have missed a lot of action.</p>
           <Formik
             initialValues={initialValues}
             validationSchema={credentialSchema}
@@ -55,11 +56,11 @@ const LoginPage = ({ login }) => {
           >
             <Form>
               <FormInput
-                label='Username'
-                name='username'
-                type='text'
-                id='username'
-                placeholder='enter username'
+                label='E-mail'
+                name='email'
+                type='email'
+                id='email'
+                placeholder='enter email'
               />
               <FormInput
                 label='Password'
@@ -96,7 +97,9 @@ const LoginPage = ({ login }) => {
           </SocialContainer>
           <HaveAccountContainer>
             Don’t have an account yet?{' '}
-            <span onClick={() => history.push('/register')}>Sign up</span>
+            <span>
+              <NavLink to='/register'>Sign up</NavLink>
+            </span>
           </HaveAccountContainer>
         </FormContainer>
       </LoginPageContainer>

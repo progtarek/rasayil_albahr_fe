@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './App.css';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter } from 'react-router-dom';
-import configureStore, { history } from './redux/store';
+import configureStore from './redux/store';
 import { ConnectedRouter } from 'connected-react-router';
 import { Provider } from 'react-redux';
+import { history } from './redux/store';
+
 const store = configureStore();
 
 ReactDOM.render(
@@ -14,9 +15,7 @@ ReactDOM.render(
   // <React.StrictMode>
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <App />
     </ConnectedRouter>
   </Provider>,
   // </React.StrictMode>,
