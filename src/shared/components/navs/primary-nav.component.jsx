@@ -20,7 +20,7 @@ export class PrimaryNav extends Component {
             <NavLink to='/account/messages'>Messages</NavLink>
           </NavigationListItem>
           <NavigationListItem>
-            <NavLink to='/account/near-by'>Near By</NavLink>
+            <NavLink to='/account/discover'>Discover</NavLink>
           </NavigationListItem>
         </NavigationListContainer>
       </PrimaryNavContainer>
