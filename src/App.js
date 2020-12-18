@@ -12,7 +12,7 @@ import SocialLoginPage from './modules/auth/social-login-page/social-login-page'
 function App({ isAuthorized }) {
   const { key } = useLocation();
   return (
-    <TransitionGroup>
+    <TransitionGroup className='app-container'>
       <CSSTransition
         key={key}
         classNames='route'
@@ -23,7 +23,6 @@ function App({ isAuthorized }) {
       >
         <Switch>
           <Route
-            exact
             path='/account'
             render={() =>
               isAuthorized ? <AccountPage /> : <Redirect to='/login' />

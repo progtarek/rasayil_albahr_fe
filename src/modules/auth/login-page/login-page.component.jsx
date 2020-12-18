@@ -18,7 +18,7 @@ import {
   SocialContainer,
   HaveAccountContainer,
 } from './login-page.styles';
-
+import { ErrorMessage } from '../../../shared/components/forms/inputs/input.styles';
 import FBLogo from '../../../assets/images/socials/facebook.svg';
 import TwitterLogo from '../../../assets/images/socials/twitter.svg';
 import GoogleLogo from '../../../assets/images/socials/google.svg';
@@ -36,7 +36,7 @@ const initialValues = {
   password: '',
 };
 
-const LoginPage = ({ login }) => {
+const LoginPage = ({ login, hasError }) => {
   const [checked, setRememberMe] = useState(false);
 
   return (
@@ -55,6 +55,7 @@ const LoginPage = ({ login }) => {
             }}
           >
             <Form>
+              {hasError ? <ErrorMessage>{hasError}</ErrorMessage> : null}
               <FormInput
                 label='E-mail'
                 name='email'
@@ -113,4 +114,8 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(LoginPage);
+const mapStateToProps = ({ auth }) => ({
+  hasError: auth.hasError,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);

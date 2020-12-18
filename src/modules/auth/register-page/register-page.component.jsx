@@ -22,6 +22,7 @@ import { NavLink } from 'react-router-dom';
 import FBLogo from '../../../assets/images/socials/facebook.svg';
 import TwitterLogo from '../../../assets/images/socials/twitter.svg';
 import GoogleLogo from '../../../assets/images/socials/google.svg';
+import { ErrorMessage } from '../../../shared/components/forms/inputs/input.styles';
 
 const credentialSchema = Yup.object({
   username: Yup.string().required('This field is required.'),
@@ -37,7 +38,7 @@ const initialValues = {
   password: '',
 };
 
-const RegisterPage = ({ register }) => {
+const RegisterPage = ({ register, hasError }) => {
   return (
     <PageContainer>
       <RegisterPageContainer>
@@ -61,6 +62,7 @@ const RegisterPage = ({ register }) => {
                 id='username'
                 placeholder='enter username'
               />
+              {hasError ? <ErrorMessage>{hasError}</ErrorMessage> : null}
               <FormInput
                 label='E-mail'
                 name='email'
@@ -113,4 +115,8 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(RegisterPage);
+const mapStateToProps = ({ auth }) => ({
+  hasError: auth.hasError,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterPage);

@@ -1,12 +1,14 @@
 * {
   font-family: 'Nunito', sans-serif;
   color: #3d373d;
+  box-sizing: border-box !important;
 }
 
 body {
   margin: 0;
   font-family: 'Nunito', sans-serif;
   color: #3d373d;
+  box-sizing: border-box !important;
 }
 
 .route-enter {
@@ -22,6 +24,11 @@ body {
 .route-exit-active {
   opacity: 1;
   transition: opacity 300ms ease-in-out;
+}
+
+.sea-message-logo {
+  height: 50px;
+  margin-top: 3px;
 }
 
 /*  General styles */

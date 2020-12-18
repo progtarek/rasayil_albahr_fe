@@ -50,7 +50,7 @@ export const Field = styled.input`
 export const ErrorMessage = styled.div`
   width: 100%;
   margin-top: 0.25rem;
-  font-size: 80%;
+  font-size: 14px;
   color: #dc3545;
 `;
 
