@@ -12,6 +12,7 @@ export const PrimaryNavContainer = styled.nav`
   color: white;
   position: sticky;
   top: 0;
+  z-index: 3;
 `;
 
 export const NavigationListContainer = styled.ul`

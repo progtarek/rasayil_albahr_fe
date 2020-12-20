@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import {
   MessagesPanelHeader,
   MessagesPanelContainer,
   MessagesPanelCount,
 } from './account.styles';
 import MessagesList from './messages-list.component';
+import { readAllMessagesAction } from '../../redux/actions/messages.action'
 
-function MessagesPanel() {
+function MessagesPanel({ messages, readAllMessages }) {
+  useEffect(() => {
+    readAllMessages();
+  }, [])
+
   return (
     <MessagesPanelContainer>
       <MessagesPanelHeader>Messages</MessagesPanelHeader>
@@ -18,4 +24,13 @@ function MessagesPanel() {
   );
 }
 
-export default MessagesPanel;
+
+const mapStateToProps = ({ messages }) => ({
+  messages
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  readAllMessages: () => dispatch(readAllMessagesAction({ page: 1, limit: 10 }))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(MessagesPanel);

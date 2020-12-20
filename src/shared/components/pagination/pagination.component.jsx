@@ -7,30 +7,25 @@ import { setupPagination } from '../../../helpers'
 function Pagination({ limit, page, pages, onPageTo }) {
   return (
     <PaginationContainer>
-      <div className='previous'>
+      <div className='previous' aria-disabled={page === 1} >
         <img src={ArrowIcon} alt='previous' />
       </div>
 
 
       {setupPagination(page, pages).map((item, index) =>
         item !== '...' ? (
-          <Pagination.Item
+          <span className={`page-item ${item === page ? 'active' : null}`}
             key={index}
-            active={item === page}
             onClick={() => onPageTo({ page: item, limit })}
           >
             {item}
-          </Pagination.Item>
+          </span>
         ) : (
-            <Pagination.Ellipsis key={index} disabled />
+            <span className='ellipsis' key={index} disabled />
           )
       )}
 
-
-      <span className='page-item'>1</span>
-      <span className='page-item active'>2</span>
-      <span className='page-item'>3</span>
-      <div className='next'>
+      <div className='next' aria-disabled={page === pages} >
         <img src={ArrowIcon} alt='next' />
       </div>
     </PaginationContainer>

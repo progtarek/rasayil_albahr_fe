@@ -9,3 +9,6 @@ export const LOGOUT = 'LOGOUT';
 export const REGISTER = 'REGISTER';
 export const ASYNC_START = 'ASYNC_START';
 export const ASYNC_END = 'ASYNC_END';
+export const READ_MESSAGES_START = 'READ_MESSAGES_START';
+export const READ_MESSAGES_SUCCESS = 'READ_MESSAGES_SUCCESS';
+export const READ_MESSAGES_FAIL = 'READ_MESSAGES_FAIL'; 

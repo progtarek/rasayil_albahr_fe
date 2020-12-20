@@ -43,7 +43,7 @@ export const ProfilePanelContainer = styled.div`
 `
 
 export const ProfilePanelCoverContainer = styled.div`
-  background-image: url(${({ src }) => (src ? src : ProfilePanelImage)});
+  background-image: url(${({ src }) => src ? src : ProfilePanelImage});
   background-size: cover;
   background-repeat: no-repeat;
   height: 100px;
@@ -60,6 +60,7 @@ export const ProfilePanelUser = styled.p`
   text-transform: capitalize;
   display: block;
   text-align: center;
+  cursor: pointer;
 `
 
 export const ProfilePanelStatus = styled.p`
@@ -77,32 +78,6 @@ export const ProfilePanelShareContainer = styled.div`
     font-size: 15px;
     margin: 10px 0;
     line-height: 1.2;
-  }
-
-  .socials {
-    display: flex;
-    flex-direction: row;
-
-    a {
-      width: 30px;
-      height: 30px;
-      border-radius: 7px;
-      overflow: hidden;
-      margin-right: 10px;
-
-      img {
-        width: 100%;
-        height: auto;
-      }
-
-      &.fb {
-        background-color: #3b5998;
-      }
-
-      &.twitter {
-        background-color: #55acee;
-      }
-    }
   }
 `
 
@@ -156,6 +131,7 @@ export const MessageCardContainer = styled.div`
     .media-body {
       display: flex;
       flex-direction: column;
+      flex: 1;
 
       p {
         font-size: 14px;
@@ -248,11 +224,23 @@ export const MessageCardContainer = styled.div`
       justify-content: space-between;
 
       .share {
+        position: relative;
+
         img {
-          width: 25px;
+          width: 22px;
           height: auto;
           cursor: pointer;
           margin: 0;
+        }
+
+        .social-bar-modal { 
+          position: absolute;
+          background-color: white;
+          border-radius: 4px;
+          padding: 8px 12px;
+          box-shadow: 0 0px 20px 5px rgba(0,0,0,.1);
+          right: 30px;
+          top: -5px; 
         }
       }
     }

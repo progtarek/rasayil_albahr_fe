@@ -17,7 +17,7 @@ function* loginAsync(action) {
     yield put({ type: LOGIN_SUCCESS, payload: res });
     window.localStorage.setItem('token', res.token);
     window.localStorage.setItem('username', res.username);
-    window.localStorage.setItem('profilePictureUrl', res.profilePictureUrl);
+    if (res.profilePictureUrl) window.localStorage.setItem('profilePictureUrl', res.profilePictureUrl);
     yield put(push('/account'));
   } catch (e) {
     yield put({ type: LOGIN_FAIL, payload: e });

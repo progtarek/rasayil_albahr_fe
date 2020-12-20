@@ -8,9 +8,9 @@ export const PaginationContainer = styled.div`
   justify-content: center;
   padding: 10px 0;
 
-  .next, .previous, .page-item {
-    width: 34px;
-    height: 38px;
+  .next, .previous, .page-item, .ellipsis {
+    width: 30px;
+    height: 34px;
     display: flex;
     border-radius: 2px;
     justify-content: center;
@@ -19,6 +19,7 @@ export const PaginationContainer = styled.div`
     cursor: pointer;
     transition: 0.3s all;
     margin: 0 5px;
+    font-size: 14px;
 
     &:hover {
       background-color: rgba(0,0,0, 0.09);
@@ -26,9 +27,13 @@ export const PaginationContainer = styled.div`
     }
 
     img {
-      width: 20px;
+      width: 15px;
       height: auto;
     }
+  }
+
+  .ellipsis {
+    cursor: disabled;
   }
 
   .previous img {
