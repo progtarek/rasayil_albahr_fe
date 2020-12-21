@@ -23,5 +23,9 @@ export const SocialBarContainer = styled.div`
     &.twitter {
       background-color: #55acee;
     }
+
+    &.share {
+      margin-right: 0;
+    }
   }
 `;

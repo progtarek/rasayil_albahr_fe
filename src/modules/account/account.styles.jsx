@@ -1,31 +1,31 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 import {
   PRIMARY_SEMI_DARK,
   SECONDARY,
-} from '../../shared/styles/theme.variables'
-import ProfilePanelImage from '../../assets/images/account/profile.svg'
+} from '../../shared/styles/theme.variables';
+import ProfilePanelImage from '../../assets/images/account/profile.svg';
 
 export const AccountPageContent = styled.section`
   padding: 1rem;
   background-color: #f9fbfb;
   flex: 1;
-`
+`;
 
 export const AccountPageContainer = styled.div`
   overflow-x: hidden;
   height: 100vh;
   display: flex;
   flex-direction: column;
-`
+`;
 
 export const TailorContent = styled.div`
   height: 200px;
   background-color: ${PRIMARY_SEMI_DARK};
-`
+`;
 
 export const MessagesPageContainer = styled.div`
   display: flex;
-`
+`;
 
 export const ProfilePanelContainer = styled.div`
   display: flex;
@@ -40,10 +40,10 @@ export const ProfilePanelContainer = styled.div`
   top: 76px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   flex-direction: column;
-`
+`;
 
 export const ProfilePanelCoverContainer = styled.div`
-  background-image: url(${({ src }) => src ? src : ProfilePanelImage});
+  background-image: url(${({ src }) => (src ? src : ProfilePanelImage)});
   background-size: cover;
   background-repeat: no-repeat;
   height: 100px;
@@ -51,7 +51,7 @@ export const ProfilePanelCoverContainer = styled.div`
   margin: 0 auto;
   border: 1px solid #eeefef;
   border-radius: 100%;p
-`
+`;
 
 export const ProfilePanelUser = styled.p`
   font-size: 19px;
@@ -61,14 +61,14 @@ export const ProfilePanelUser = styled.p`
   display: block;
   text-align: center;
   cursor: pointer;
-`
+`;
 
 export const ProfilePanelStatus = styled.p`
   font-size: 14px;
   margin: 0 0 12px 0;
   height: 38px;
   opacity: 0.9;
-`
+`;
 
 export const ProfilePanelShareContainer = styled.div`
   display: flex;
@@ -79,7 +79,7 @@ export const ProfilePanelShareContainer = styled.div`
     margin: 10px 0;
     line-height: 1.2;
   }
-`
+`;
 
 export const MessagesPanelContainer = styled.div`
   display: flex;
@@ -91,25 +91,25 @@ export const MessagesPanelContainer = styled.div`
   border-radius: 4px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   flex-direction: column;
-`
+`;
 
 export const MessagesPanelHeader = styled.h2`
   color: ${SECONDARY};
   margin: 0;
-`
+`;
 
 export const MessagesPanelCount = styled.span`
   font-size: 14px;
   color: inherit;
   opacity: 0.9;
   margin-top: 4px;
-`
+`;
 
 export const MessagesListContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 10px;
-`
+`;
 
 export const MessageCardContainer = styled.div`
   border: 1px solid #eeefef;
@@ -144,16 +144,16 @@ export const MessageCardContainer = styled.div`
       }
     }
 
-    .media-actions { 
+    .media-actions {
       margin-left: 10px;
       position: relative;
+      margin-left: auto;
 
       .trigger {
         display: flex;
         cursor: pointer;
-        padding: 0.5rem;
+        padding: 0.5rem 0;
         opacity: 0.5;
-        transition: 0.3s all;
 
         &:hover {
           opacity: 0.8;
@@ -161,14 +161,10 @@ export const MessageCardContainer = styled.div`
 
         span {
           width: 5px;
-          height: 5px; 
+          height: 5px;
           border-radius: 5px;
           background-color: #3d373d;
           margin: 0 1px;
-        }
-
-        &:hover + .dropdown-menu {
-          display: flex;
         }
       }
 
@@ -178,27 +174,22 @@ export const MessageCardContainer = styled.div`
         top: 20px;
         padding: 0.5rem;
         z-index: 1000;
-        display: none;
+        display: flex;
         min-width: 160px;
-        list-style: none; 
-        flex-direction: column; 
-        background-color: #fff; 
-        border: 1px solid rgba(0, 0, 0, .05);
+        list-style: none;
+        flex-direction: column;
+        background-color: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.05);
         border-radius: 3px;
-        box-shadow: 0 6px 16px rgba(0, 0, 0, .1); 
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
         margin: 0;
-
-        &:hover {
-          display: flex;
-        }
 
         li {
           padding: 8px 0;
           margin: 0 12px;
           cursor: pointer;
-          border-bottom: 1px solid rgba(0,0,0,0.1);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
           opacity: 0.7;
-          transition: 0.3s all;
           font-size: 14px;
 
           &:last-child {
@@ -213,13 +204,17 @@ export const MessageCardContainer = styled.div`
       }
     }
 
-    .media-bar { 
+    .content-bar {
+      display: flex;
+    }
+
+    .media-bar {
       display: flex;
       flex-direction: row;
       color: white;
       padding-top: 8px;
       margin-top: 8px;
-      border-top: 1px solid rgba(0,0,0,0.1);
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
       align-items: center;
       justify-content: space-between;
 
@@ -233,16 +228,16 @@ export const MessageCardContainer = styled.div`
           margin: 0;
         }
 
-        .social-bar-modal { 
+        .social-bar-modal {
           position: absolute;
           background-color: white;
           border-radius: 4px;
           padding: 8px 12px;
-          box-shadow: 0 0px 20px 5px rgba(0,0,0,.1);
+          box-shadow: 0 0px 20px 5px rgba(0, 0, 0, 0.1);
           right: 30px;
-          top: -5px; 
+          top: -5px;
         }
       }
     }
   }
-`
+`;
