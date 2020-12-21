@@ -7,7 +7,7 @@ import { setupPagination } from '../../../helpers'
 function Pagination({ limit, page, pages, onPageTo }) {
   return (
     <PaginationContainer>
-      <div className='previous' aria-disabled={page === 1} >
+      <div className='previous' onClick={() => onPageTo(page - 1)} >
         <img src={ArrowIcon} alt='previous' />
       </div>
 
@@ -25,7 +25,7 @@ function Pagination({ limit, page, pages, onPageTo }) {
           )
       )}
 
-      <div className='next' aria-disabled={page === pages} >
+      <div className='next' onClick={() => onPageTo(page + 1)} >
         <img src={ArrowIcon} alt='next' />
       </div>
     </PaginationContainer>

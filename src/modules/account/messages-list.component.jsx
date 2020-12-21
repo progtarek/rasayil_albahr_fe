@@ -3,6 +3,7 @@ import Pagination from '../../shared/components/pagination/pagination.component'
 import { MessagesListContainer } from './account.styles';
 import MessageCard from './message-card.component';
 import { connect } from 'react-redux';
+import { readAllMessagesAction } from '../../redux/actions/messages.action';
 
 
 function MessagesList({ messages }) {
@@ -12,7 +13,7 @@ function MessagesList({ messages }) {
         <MessageCard key={index} {...message} />
       )) : null}
 
-      <Pagination {...messages} />
+      <Pagination {...messages} onPageTo />
     </MessagesListContainer>
   );
 }
@@ -21,4 +22,8 @@ const mapStateToProps = ({ messages }) => ({
   messages
 });
 
-export default connect(mapStateToProps)(MessagesList);
+const mapDispatchToProps = (dispatch) => ({
+  readAllMessages: ({ page }) => dispatch(readAllMessagesAction({ page }))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(MessagesList);

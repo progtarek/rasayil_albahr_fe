@@ -4,9 +4,9 @@ import {
 import { call, takeLatest, put } from 'redux-saga/effects';
 import { Messages } from '../../agent';
 
-function* readAllMessagesAsync() {
+function* readAllMessagesAsync(action) {
   try {
-    const res = yield call(Messages.readAll);
+    const res = yield call(Messages.readAll, action.payload);
     yield put({ type: READ_MESSAGES_SUCCESS, payload: res });
 
   } catch (e) {

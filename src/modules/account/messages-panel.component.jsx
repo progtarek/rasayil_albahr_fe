@@ -30,7 +30,7 @@ const mapStateToProps = ({ messages }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  readAllMessages: () => dispatch(readAllMessagesAction({ page: 1, limit: 10 }))
+  readAllMessages: () => dispatch(readAllMessagesAction({ page: 1 }))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MessagesPanel);

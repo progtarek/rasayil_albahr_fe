@@ -44,7 +44,7 @@ const Auth = {
 
 
 const Messages = {
-  readAll: () => requests.get('/messages')
+  readAll: (params) => requests.get('/messages', params)
 }
 
 export { Auth, Messages };
