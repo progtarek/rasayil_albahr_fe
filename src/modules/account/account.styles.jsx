@@ -2,13 +2,13 @@ import styled from "styled-components";
 import {
   PRIMARY_SEMI_DARK,
   SECONDARY,
+  Container,
 } from "../../shared/styles/theme.variables";
 import ProfilePanelImage from "../../assets/images/account/profile.svg";
 
-export const AccountPageContent = styled.section`
+export const AccountPageContent = styled(Container)`
   padding: 1rem;
   background-color: #f9fbfb;
-  flex: 1;
 `;
 
 export const AccountPageContainer = styled.div`
@@ -29,7 +29,7 @@ export const MessagesPageContainer = styled.div`
 
 export const ProfilePanelContainer = styled.div`
   display: flex;
-  flex: 0 1 30%;
+  flex: 0 1 300px;
   margin: 0 1rem;
   background-color: white;
   padding: 1rem;
