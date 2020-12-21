@@ -23,7 +23,7 @@ export class PrimaryNav extends Component {
               id="search"
               type="search"
               autoComplete="false"
-              placeholder="Looking for someone"
+              placeholder="Feeling lucky"
             />
           </SearchContainer>
 

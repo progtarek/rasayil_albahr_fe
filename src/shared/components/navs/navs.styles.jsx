@@ -47,5 +47,21 @@ export const SearchContainer = styled.div`
     padding: 10px 12px;
     border-radius: 4px;
     min-width: 300px;
+    background-color: rgba(255, 255, 255, 0.8);
+
+    ::placeholder {
+      /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: #3d373d;
+    }
+
+    :-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      color: #3d373d;
+    }
+
+    ::-ms-input-placeholder {
+      /* Microsoft Edge */
+      color: #3d373d;
+    }
   }
 `;
