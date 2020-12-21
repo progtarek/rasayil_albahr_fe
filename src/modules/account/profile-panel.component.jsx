@@ -1,24 +1,27 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import SocialBar from '../../shared/components/social-bar/social-bar.component';
+import React from "react";
+import { connect } from "react-redux";
+import SocialBar from "../../shared/components/social-bar/social-bar.component";
 import {
   ProfilePanelUser,
   ProfilePanelStatus,
   ProfilePanelContainer,
   ProfilePanelShareContainer,
   ProfilePanelCoverContainer,
-} from './account.styles';
+} from "./account.styles";
 
 function ProfilePanel({ profile }) {
   return (
     <ProfilePanelContainer>
-      <ProfilePanelCoverContainer src={profile.profilePictureUrl} />
+      <ProfilePanelCoverContainer src={profile.profilePictureUrl}>
+        <input type="file" id="profilePicture" />
+        <label htmlFor="profilePicture"></label>
+      </ProfilePanelCoverContainer>
       <ProfilePanelUser>@{profile.username}</ProfilePanelUser>
       <ProfilePanelStatus>
         {profile.status || `Hello I'am using sea messages`}
       </ProfilePanelStatus>
       <ProfilePanelShareContainer>
-        <h3 className='header'>Share your profile to receive messages</h3>
+        <h3 className="header">Share your profile to receive messages</h3>
         <SocialBar></SocialBar>
       </ProfilePanelShareContainer>
     </ProfilePanelContainer>
@@ -26,7 +29,7 @@ function ProfilePanel({ profile }) {
 }
 
 const mapStateToProps = ({ auth }) => ({
-  profile: auth
+  profile: auth,
 });
 
 export default connect(mapStateToProps)(ProfilePanel);

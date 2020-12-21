@@ -45,7 +45,7 @@ export const SearchContainer = styled.div`
     border: none;
     outline: none;
     padding: 10px 12px;
-    border-radius: 2px;
+    border-radius: 4px;
     min-width: 300px;
   }
 `;

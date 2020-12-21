@@ -5,10 +5,12 @@ import {
   Container,
 } from "../../shared/styles/theme.variables";
 import ProfilePanelImage from "../../assets/images/account/profile.svg";
+import CameraIcon from "../../assets/images/common/camera.svg";
 
 export const AccountPageContent = styled(Container)`
   padding: 1rem;
   background-color: #f9fbfb;
+  flex: 1;
 `;
 
 export const AccountPageContainer = styled.div`
@@ -29,7 +31,7 @@ export const MessagesPageContainer = styled.div`
 
 export const ProfilePanelContainer = styled.div`
   display: flex;
-  flex: 0 1 300px;
+  flex: 0 1 280px;
   margin: 0 1rem;
   background-color: white;
   padding: 1rem;
@@ -50,7 +52,38 @@ export const ProfilePanelCoverContainer = styled.div`
   width: 100px;
   margin: 0 auto;
   border: 1px solid #eeefef;
-  border-radius: 100%;p
+  border-radius: 100%;
+  position: relative;
+  overflow: hidden;
+
+  &:hover label {
+    opacity: 1;
+  }
+
+  input {
+    display: none;
+    width: 100%;
+    height: 100%;
+  }
+
+  label {
+    z-index: 5;
+    cursor: pointer;
+    top: 50%;
+    left: 0;
+    height: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-image: url(${CameraIcon});
+    background-size: auto 50%;
+    background-repeat: no-repeat;
+    display: block;
+    opacity: 0;
+    transition: all 0.5s;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    background-position: center;
+  }
 `;
 
 export const ProfilePanelUser = styled.p`
@@ -183,6 +216,7 @@ export const MessageCardContainer = styled.div`
         border-radius: 3px;
         box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
         margin: 0;
+        z-index: 2;
 
         li {
           padding: 8px 0;
@@ -208,9 +242,8 @@ export const MessageCardContainer = styled.div`
       display: flex;
 
       p {
-        overflow-wrap: break-word;
-        word-wrap: break-word;
-        max-width: 800px;
+        display: inline-block;
+        word-break: break-word;
       }
     }
 

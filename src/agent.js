@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 const API_ROOT = process.env.REACT_APP_API_URL;
 
@@ -9,7 +9,7 @@ let instance = axios.create({
 // Add a request interceptor
 instance.interceptors.request.use(
   function (config) {
-    const AUTH_TOKEN = localStorage.getItem('token') || null;
+    const AUTH_TOKEN = localStorage.getItem("token") || null;
     if (AUTH_TOKEN) {
       config.headers.Authorization = `Bearer ${AUTH_TOKEN}`;
     }
@@ -35,16 +35,15 @@ const requests = {
     instance.get(url, { params }).then(responseBody).catch(catchError),
 };
 
-
 const Auth = {
-  login: (credentials) => requests.post('/auth/login', { ...credentials }),
+  login: (credentials) => requests.post("/auth/login", { ...credentials }),
   register: (credentials) =>
-    requests.post('/auth/register', { ...credentials }),
+    requests.post("/auth/register", { ...credentials }),
 };
 
-
 const Messages = {
-  readAll: (params) => requests.get('/messages', params)
-}
+  readAll: (params) => requests.get("/messages", params),
+  deleteMessage: (id) => requests.del(`/messages/${id}`),
+};
 
 export { Auth, Messages };
