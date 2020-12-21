@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 import {
   PRIMARY_SEMI_DARK,
   SECONDARY,
-} from '../../shared/styles/theme.variables';
-import ProfilePanelImage from '../../assets/images/account/profile.svg';
+} from "../../shared/styles/theme.variables";
+import ProfilePanelImage from "../../assets/images/account/profile.svg";
 
 export const AccountPageContent = styled.section`
   padding: 1rem;
@@ -206,6 +206,12 @@ export const MessageCardContainer = styled.div`
 
     .content-bar {
       display: flex;
+
+      p {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        max-width: 800px;
+      }
     }
 
     .media-bar {

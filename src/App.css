@@ -1,12 +1,12 @@
 * {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   color: #3d373d;
   box-sizing: border-box !important;
 }
 
 body {
   margin: 0;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   color: #3d373d;
   box-sizing: border-box !important;
 }
@@ -35,4 +35,9 @@ body {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed !important;
 }
