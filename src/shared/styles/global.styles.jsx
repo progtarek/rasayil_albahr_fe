@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { PRIMARY, PRIMARY_DARK, GRAY } from './theme.variables';
+import { PRIMARY, GRAY, PRIMARY_SEMI_DARK } from './theme.variables';
 
 export const PageContainer = styled.div`
   width: 100vw;
@@ -25,7 +25,7 @@ export const Button = styled.button`
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
-  border-radius: 0.25rem;
+  border-radius: 3px;
   cursor: pointer;
   width: 100%;
   transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out,
@@ -33,10 +33,24 @@ export const Button = styled.button`
 
   &.btn-primary {
     background-color: ${PRIMARY};
+    border-color: ${PRIMARY};
     color: #fff;
 
-    &:hover {
-      background-color: ${PRIMARY_DARK};
+    &:hover,
+    &:active {
+      background-color: ${PRIMARY_SEMI_DARK};
+      border-color: ${PRIMARY_SEMI_DARK};
+    }
+  }
+
+  &.btn-primary-outline {
+    border-color: ${PRIMARY};
+    color: ${PRIMARY};
+
+    &:hover,
+    &:active {
+      background-color: ${PRIMARY_SEMI_DARK};
+      color: white;
     }
   }
 `;

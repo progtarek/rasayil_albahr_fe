@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 const API_ROOT = process.env.REACT_APP_API_URL;
 
@@ -9,7 +9,8 @@ let instance = axios.create({
 // Add a request interceptor
 instance.interceptors.request.use(
   function (config) {
-    const AUTH_TOKEN = localStorage.getItem("token") || null;
+    config.headers['Content-Type'] = 'application/json';
+    const AUTH_TOKEN = localStorage.getItem('token') || null;
     if (AUTH_TOKEN) {
       config.headers.Authorization = `Bearer ${AUTH_TOKEN}`;
     }
@@ -19,6 +20,8 @@ instance.interceptors.request.use(
     return Promise.reject(error);
   }
 );
+
+// TODO implement response interceptor and handle unauthorized requests
 
 const responseBody = (res) => res.data;
 const catchError = (err) => {
@@ -36,14 +39,27 @@ const requests = {
 };
 
 const Auth = {
-  login: (credentials) => requests.post("/auth/login", { ...credentials }),
+  login: (credentials) => requests.post('/auth/login', { ...credentials }),
   register: (credentials) =>
-    requests.post("/auth/register", { ...credentials }),
+    requests.post('/auth/register', { ...credentials }),
 };
 
 const Messages = {
-  readAll: (params) => requests.get("/messages", params),
+  readAll: (params) => requests.get('/messages', params),
   deleteMessage: (id) => requests.del(`/messages/${id}`),
 };
 
-export { Auth, Messages };
+const Users = {
+  updateProfilePicture: (body) => requests.post('/users/profile-picture', body),
+  updateUserStatus: (body) => requests.put('/users/status', body),
+};
+
+const Media = {
+  upload: (file) => {
+    const mediaFormData = new FormData();
+    mediaFormData.append('image', file);
+    return requests.post('/media', mediaFormData);
+  },
+};
+
+export { Auth, Messages, Users, Media };

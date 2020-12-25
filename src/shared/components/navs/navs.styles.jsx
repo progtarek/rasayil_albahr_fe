@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Container, PRIMARY } from "../../styles/theme.variables";
+import styled from 'styled-components';
+import { Container, PRIMARY } from '../../styles/theme.variables';
 
 export const PrimaryNavContainer = styled.nav`
   width: 100%;

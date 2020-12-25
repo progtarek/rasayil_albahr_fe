@@ -1,13 +1,33 @@
-import { LOGIN, REGISTER } from '../constants/actionTypes';
+import {
+  LOGIN,
+  REGISTER,
+  SET_STATUS,
+  UPLOAD_PROFILE_PICTURE,
+} from '../constants/actionTypes';
 
 const loginAction = (loginCredentials) => ({
   type: LOGIN,
   payload: loginCredentials,
 });
 
-const registerAction = (registerCredentials) => ({
+const registerAction = (payload) => ({
   type: REGISTER,
-  payload: registerCredentials,
+  payload,
 });
 
-export { loginAction, registerAction };
+const uploadProfilePictureAction = (payload) => ({
+  type: UPLOAD_PROFILE_PICTURE,
+  payload,
+});
+
+const updateUserStatusAction = (payload) => ({
+  type: SET_STATUS,
+  payload,
+});
+
+export {
+  loginAction,
+  registerAction,
+  uploadProfilePictureAction,
+  updateUserStatusAction,
+};

@@ -1,11 +1,12 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import {
   PRIMARY_SEMI_DARK,
   SECONDARY,
   Container,
-} from "../../shared/styles/theme.variables";
-import ProfilePanelImage from "../../assets/images/account/profile.svg";
-import CameraIcon from "../../assets/images/common/camera.svg";
+  PRIMARY,
+} from '../../shared/styles/theme.variables';
+import ProfilePanelImage from '../../assets/images/account/profile.svg';
+import CameraIcon from '../../assets/images/common/camera.svg';
 
 export const AccountPageContent = styled(Container)`
   padding: 1rem;
@@ -42,6 +43,7 @@ export const ProfilePanelContainer = styled.div`
   top: 76px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   flex-direction: column;
+  z-index: 1;
 `;
 
 export const ProfilePanelCoverContainer = styled.div`
@@ -94,13 +96,21 @@ export const ProfilePanelUser = styled.p`
   display: block;
   text-align: center;
   cursor: pointer;
+  // color: ${PRIMARY};
 `;
 
 export const ProfilePanelStatus = styled.p`
   font-size: 14px;
-  margin: 0 0 12px 0;
-  height: 38px;
+  margin-bottom: 5px;
+  max-height: 60px;
   opacity: 0.9;
+
+  img {
+    width: 20px;
+    cursor: pointer;
+    margin: 0 10px;
+    margin-bottom: -6px;
+  }
 `;
 
 export const ProfilePanelShareContainer = styled.div`
@@ -131,11 +141,12 @@ export const MessagesPanelHeader = styled.h2`
   margin: 0;
 `;
 
-export const MessagesPanelCount = styled.span`
+export const MessagesPanelCount = styled.p`
   font-size: 14px;
   color: inherit;
   opacity: 0.9;
   margin-top: 4px;
+  margin-bottom: 0;
 `;
 
 export const MessagesListContainer = styled.div`
@@ -258,25 +269,37 @@ export const MessageCardContainer = styled.div`
       justify-content: space-between;
 
       .share {
-        position: relative;
-
         img {
           width: 22px;
           height: auto;
           cursor: pointer;
           margin: 0;
         }
+      }
 
-        .social-bar-modal {
-          position: absolute;
-          background-color: white;
-          border-radius: 4px;
-          padding: 8px 12px;
-          box-shadow: 0 0px 20px 5px rgba(0, 0, 0, 0.1);
-          right: 30px;
-          top: -5px;
-        }
+      p {
+        font-size: 12px;
+        opacity: 0.5;
+        margin: 0;
       }
     }
+  }
+`;
+
+export const ModalHeaderContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: -80px;
+
+  img {
+    width: 100px;
+  }
+`;
+
+export const ModalBodyContainer = styled.div`
+  margin-top: 1rem;
+
+  textarea {
+    resize: none;
   }
 `;

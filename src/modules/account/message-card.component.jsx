@@ -1,18 +1,18 @@
-import React, { useState, useRef, useEffect } from "react";
-import { MessageCardContainer } from "./account.styles";
-import NewMessageIcon from "../../assets/images/account/message.svg";
-import ShareIcon from "../../assets/images/share.svg";
+import React, { useState, useRef, useEffect } from 'react';
+import { MessageCardContainer } from './account.styles';
+import NewMessageIcon from '../../assets/images/account/message.svg';
+import ShareIcon from '../../assets/images/share.svg';
 
 const formateDate = (date) => {
   const options = {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
     hour12: true,
   };
-  return new Date(date).toLocaleDateString("en-EG", options);
+  return new Date(date).toLocaleDateString('en-EG', options);
 };
 
 function MessageCard({ _id, message, createdAt, deleteMessage }) {
@@ -20,7 +20,7 @@ function MessageCard({ _id, message, createdAt, deleteMessage }) {
   const dropdownMenuRef = useRef(null);
 
   const handleHideDropdown = (event) => {
-    if (event.key === "Escape") {
+    if (event.key === 'Escape') {
       setActionsBarVisibility(false);
     }
   };
@@ -35,24 +35,24 @@ function MessageCard({ _id, message, createdAt, deleteMessage }) {
   };
 
   useEffect(() => {
-    document.addEventListener("keydown", handleHideDropdown, true);
-    document.addEventListener("click", handleClickOutside, true);
+    document.addEventListener('keydown', handleHideDropdown, true);
+    document.addEventListener('click', handleClickOutside, true);
     return () => {
-      document.removeEventListener("keydown", handleHideDropdown, true);
-      document.removeEventListener("click", handleClickOutside, true);
+      document.removeEventListener('keydown', handleHideDropdown, true);
+      document.removeEventListener('click', handleClickOutside, true);
     };
   });
 
   return (
     <MessageCardContainer>
-      <div className="media">
-        <img src={NewMessageIcon} alt="got new message" />
-        <div className="media-body">
-          <div className="content-bar">
-            <p className="content">{message}</p>
-            <div className="media-actions">
+      <div className='media'>
+        <img src={NewMessageIcon} alt='got new message' />
+        <div className='media-body'>
+          <div className='content-bar'>
+            <p className='content'>{message}</p>
+            <div className='media-actions'>
               <div
-                className="trigger"
+                className='trigger'
                 onClick={() => setActionsBarVisibility(!actionBarVisibility)}
               >
                 <span></span>
@@ -60,12 +60,12 @@ function MessageCard({ _id, message, createdAt, deleteMessage }) {
                 <span></span>
               </div>
               <ul
-                className="dropdown-menu"
+                className='dropdown-menu'
                 ref={dropdownMenuRef}
                 style={
                   actionBarVisibility
-                    ? { visibility: "visible" }
-                    : { visibility: "hidden" }
+                    ? { visibility: 'visible' }
+                    : { visibility: 'hidden' }
                 }
               >
                 <li
@@ -80,10 +80,10 @@ function MessageCard({ _id, message, createdAt, deleteMessage }) {
               </ul>
             </div>
           </div>
-          <div className="media-bar">
-            <span>{formateDate(createdAt)}</span>
-            <div className="share">
-              <img src={ShareIcon} alt="share via" />
+          <div className='media-bar'>
+            <p>{formateDate(createdAt)}</p>
+            <div className='share'>
+              <img src={ShareIcon} alt='share via' />
               {/* <div className="social-bar-modal">
                 <SocialBar></SocialBar>
               </div> */}
