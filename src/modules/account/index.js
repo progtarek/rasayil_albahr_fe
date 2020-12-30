@@ -1,14 +1,14 @@
 import React from 'react';
-import { Redirect, Route, Switch, useRouteMatch } from 'react-router-dom';
 import PrimaryNav from '../../shared/components/navs/primary-nav.component';
-import { AccountPageContainer, AccountPageContent } from './account.styles';
+import {
+  AccountPageContainer,
+  AccountPageContent,
+  MessagesPageContainer,
+} from './account.styles';
 import FooterContainer from '../../shared/components/footer/PrimaryFooter.component';
-import Messages from './Messages.component';
-import NearBy from './NearBy.component';
-
+import MessagesPanel from './messages-panel.component';
+import ProfilePanel from './profile-panel.component';
 const AccountPage = () => {
-  let match = useRouteMatch();
-
   return (
     <AccountPageContainer>
       <PrimaryNav />
@@ -18,17 +18,10 @@ const AccountPage = () => {
       </AccountPageContainer>
       <TailorContent></TailorContent> */}
       <AccountPageContent>
-        <Switch>
-          <Route exact path={`${match.path}/messages`}>
-            <Messages />
-          </Route>
-          <Route exact path={`${match.path}/near-by`}>
-            <NearBy />
-          </Route>
-          <Route path='/'>
-            <Redirect to='/account/messages' />
-          </Route>
-        </Switch>
+        <MessagesPageContainer>
+          <ProfilePanel />
+          <MessagesPanel />
+        </MessagesPageContainer>
       </AccountPageContent>
       <FooterContainer />
     </AccountPageContainer>

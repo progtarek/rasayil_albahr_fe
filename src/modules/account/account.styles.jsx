@@ -4,13 +4,13 @@ import {
   SECONDARY,
   Container,
   PRIMARY,
+  BACKGROUND_LIGHT,
 } from '../../shared/styles/theme.variables';
 import ProfilePanelImage from '../../assets/images/account/profile.svg';
 import CameraIcon from '../../assets/images/common/camera.svg';
 
 export const AccountPageContent = styled(Container)`
   padding: 1rem;
-  background-color: #f9fbfb;
   flex: 1;
 `;
 
@@ -19,6 +19,7 @@ export const AccountPageContainer = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: ${BACKGROUND_LIGHT};
 `;
 
 export const TailorContent = styled.div`

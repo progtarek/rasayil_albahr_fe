@@ -1,38 +1,33 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   PrimaryNavContainer,
   NavigationListContainer,
   NavigationListItem,
   SearchContainer,
-} from "./navs.styles";
-import { NavLink, Link } from "react-router-dom";
-import LOGO from "../../../assets/images/logo.svg";
-import { Container } from "../../styles/theme.variables";
+} from './navs.styles';
+import { NavLink, Link } from 'react-router-dom';
+import LOGO from '../../../assets/images/logo.svg';
+import { Container } from '../../styles/theme.variables';
 
 export class PrimaryNav extends Component {
   render() {
     return (
       <PrimaryNavContainer>
         <Container>
-          <Link to="/">
-            <img src={LOGO} alt="rasayil albahr" className="sea-message-logo" />
+          <Link to='/'>
+            <img src={LOGO} alt='rasayil albahr' className='sea-message-logo' />
           </Link>
 
           <SearchContainer>
-            <input
-              id="search"
-              type="search"
-              autoComplete="false"
-              placeholder="Feeling lucky"
-            />
+            <input id='search' type='search' autoComplete='false' />
           </SearchContainer>
 
           <NavigationListContainer>
             <NavigationListItem>
-              <NavLink to="/account/messages">Messages</NavLink>
+              <NavLink to='/messages'>Messages</NavLink>
             </NavigationListItem>
             <NavigationListItem>
-              <NavLink to="/account/discover">Discover</NavLink>
+              <NavLink to='/discover'>Discover</NavLink>
             </NavigationListItem>
           </NavigationListContainer>
         </Container>

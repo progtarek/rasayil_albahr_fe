@@ -1,17 +1,17 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import {
   MessagesPanelHeader,
   MessagesPanelContainer,
   MessagesPanelCount,
-} from "./account.styles";
-import MessagesList from "./messages-list.component";
-import { readAllMessagesAction } from "../../redux/actions/messages.action";
+} from './account.styles';
+import MessagesList from './messages-list.component';
+import { readAllMessagesAction } from '../../redux/actions/messages.action';
 
 const calculatePaging = (source, paging) => {
   const { docs, limit, page } = paging;
   if (docs && docs.length) {
-    if (source === "end") {
+    if (source === 'end') {
       return docs.length === limit
         ? page * limit
         : (page - 1) * limit + docs.length;
@@ -24,15 +24,15 @@ const calculatePaging = (source, paging) => {
 function MessagesPanel({ messages, readAllMessages }) {
   useEffect(() => {
     readAllMessages();
-  }, []);
+  }, [readAllMessages]);
 
   return (
     <MessagesPanelContainer>
       <MessagesPanelHeader>Messages</MessagesPanelHeader>
       {messages.docs && messages.docs.length ? (
         <MessagesPanelCount>
-          Display {calculatePaging("start", messages)} to{" "}
-          {calculatePaging("end", messages)} of <b>{messages.total}</b> Messages
+          Display {calculatePaging('start', messages)} to{' '}
+          {calculatePaging('end', messages)} of <b>{messages.total}</b> Messages
         </MessagesPanelCount>
       ) : null}
       <MessagesList />

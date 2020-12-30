@@ -1,11 +1,12 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const PRIMARY = "#40D2DC";
-export const PRIMARY_LIGHT = "#66DBE3";
-export const PRIMARY_DARK = "#068EA9";
-export const PRIMARY_SEMI_DARK = "#2FBFD1";
-export const SECONDARY = "#3D373D";
-export const GRAY = "#ced4da";
+export const PRIMARY = '#40D2DC';
+export const PRIMARY_LIGHT = '#66DBE3';
+export const PRIMARY_DARK = '#068EA9';
+export const PRIMARY_SEMI_DARK = '#2FBFD1';
+export const SECONDARY = '#3D373D';
+export const GRAY = '#ced4da';
+export const BACKGROUND_LIGHT = '#F9FBFB';
 export const Container = styled.div`
   padding-right: 15px;
   padding-left: 15px;

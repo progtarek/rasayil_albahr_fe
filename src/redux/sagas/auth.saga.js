@@ -22,7 +22,7 @@ function* loginAsync(action) {
     window.localStorage.setItem('username', res.username);
     if (res.profilePictureUrl)
       window.localStorage.setItem('profilePictureUrl', res.profilePictureUrl);
-    yield put(push('/account'));
+    yield put(push('/messages'));
   } catch (e) {
     yield put({ type: LOGIN_FAIL, payload: e });
   }
@@ -34,7 +34,7 @@ function* registerAsync(action) {
     yield put({ type: REGISTER_SUCCESS, payload: res });
     window.localStorage.setItem('token', res.token);
     window.localStorage.setItem('username', res.username);
-    yield put(push('/account'));
+    yield put(push('/messages'));
   } catch (e) {
     yield put({ type: REGISTER_FAIL, payload: e });
   }

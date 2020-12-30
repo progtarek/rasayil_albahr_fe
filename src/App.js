@@ -8,6 +8,7 @@ import './App.css';
 import AccountPage from './modules/account';
 import { connect } from 'react-redux';
 import SocialLoginPage from './modules/auth/social-login-page/social-login-page';
+import DiscoverPage from './modules/discover';
 
 function App({ isAuthorized }) {
   const { key } = useLocation();
@@ -23,23 +24,31 @@ function App({ isAuthorized }) {
       >
         <Switch>
           <Route
-            path='/account'
+            path='/messages'
+            exact
             render={() =>
               isAuthorized ? <AccountPage /> : <Redirect to='/login' />
+            }
+          />
+          <Route
+            path='/discover'
+            exact
+            render={() =>
+              isAuthorized ? <DiscoverPage /> : <Redirect to='/login' />
             }
           />
           <Route
             exact
             path='/login'
             render={() =>
-              !isAuthorized ? <LoginPage /> : <Redirect to='/account' />
+              !isAuthorized ? <LoginPage /> : <Redirect to='/messages' />
             }
           ></Route>
           <Route
             exact
             path='/register'
             render={() =>
-              !isAuthorized ? <RegisterPage /> : <Redirect to='/account' />
+              !isAuthorized ? <RegisterPage /> : <Redirect to='/messages' />
             }
           ></Route>
           <Route exact path='/authWith' component={SocialLoginPage}></Route>
