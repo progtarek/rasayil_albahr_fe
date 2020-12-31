@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import { Container, SECONDARY } from "../../styles/theme.variables";
+import styled from 'styled-components';
+import { Container, SECONDARY } from '../../styles/theme.variables';
 
 export const FooterContainer = styled.footer`
-  padding: 1rem 2rem;
+  padding: 1rem 0;
   background-color: ${SECONDARY};
 
   ${Container} {
