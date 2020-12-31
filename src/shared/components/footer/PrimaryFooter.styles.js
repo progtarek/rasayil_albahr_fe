@@ -16,4 +16,12 @@ export const FooterContainer = styled.footer`
     font-size: 14px;
     margin: 0;
   }
+
+  @media (min-width: 300px) {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
 `;

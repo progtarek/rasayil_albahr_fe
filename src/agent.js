@@ -52,6 +52,7 @@ const Messages = {
 const Users = {
   updateProfilePicture: (body) => requests.post('/users/profile-picture', body),
   updateUserStatus: (body) => requests.put('/users/status', body),
+  discover: (params) => requests.get('/users/discover', params),
 };
 
 const Media = {

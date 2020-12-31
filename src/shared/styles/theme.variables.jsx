@@ -13,6 +13,10 @@ export const Container = styled.div`
   margin-right: auto;
   margin-left: auto;
 
+  @media (min-width: 300px) {
+    width: 99%;
+  }
+
   @media (min-width: 768px) {
     width: 750px;
   }

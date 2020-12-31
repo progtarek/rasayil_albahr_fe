@@ -12,12 +12,7 @@ const AccountPage = () => {
   return (
     <AccountPageContainer>
       <PrimaryNav />
-      {/**  TODO move below items to near by page*/}
-      {/* <AccountPageContainer>
-        <img src={ISLAND} alt='my island' />
-      </AccountPageContainer>
-      <TailorContent></TailorContent> */}
-      <AccountPageContent>
+      <AccountPageContent className='tarek'>
         <MessagesPageContainer>
           <ProfilePanel />
           <MessagesPanel />
